@@ -1,0 +1,18 @@
+.app{
+  background-color: gray;
+  height: 100vh;
+}
+.cat {
+  width: 172px;
+  height: 5em;
+  background: transparent
+  url('http://i1344.photobucket.com/albums/p654/Chisnits/sprite_catwalk_zps1zu48hwg.png');   
+  animation: catwalk 1s steps(11) infinite;
+}
+.cat:hover{
+  transform: scaleX(-1);
+}
+
+@keyframes catwalk {
+  100% { background-position: 0 100%; }
+}
