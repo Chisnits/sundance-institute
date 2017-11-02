@@ -1,6 +1,29 @@
-.app{
-  background-color: gray;
+.wrapper{
   height: 100vh;
+  width: 100%;
+  background-image: url('http://i1344.photobucket.com/albums/p654/Chisnits/full-moon_zpsyay7m1ci.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.parallax{
+  height: 50vh;
+  width: 100%;
+  background-image: url('http://i1344.photobucket.com/albums/p654/Chisnits/graveyard_zps7ou0kgq6.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 50vh;
+}
+.witch{
+  margin: auto;
+  width: 95px;
+  height: 7em;
+  background: transparent
+  url('http://i1344.photobucket.com/albums/p654/Chisnits/flying-witch_zpsdxjspc4e.png');
+  animation: witchfly 8s steps(9) infinite;
+  position: absolute;
 }
 .cat {
   width: 172px;
@@ -8,11 +31,48 @@
   background: transparent
   url('http://i1344.photobucket.com/albums/p654/Chisnits/sprite_catwalk_zps1zu48hwg.png');   
   animation: catwalk 1s steps(11) infinite;
+  position: absolute;
+  left: 234px;
+  top: 659px;
 }
 .cat:hover{
   transform: scaleX(-1);
 }
 
+@keyframes witchfly {
+  0%{
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+  }
+  15%{
+    top: 40vh;
+    left: 35vw;
+  }
+  25%{
+    top: 30vh;
+    left: 15vw;
+  }
+  35%{
+    top: 20vh;
+    left: 0;
+  }
+  45%{
+    top: 15vh;
+    left: 20vw;
+  }
+  55%{
+    top: 10vh;
+    left: 40vw;
+  }
+  65%{
+    top: 10vh;
+    left: 60vw;
+  }
+  100% { 
+    background-position: 100%; 
+  }
+}
 @keyframes catwalk {
   100% { background-position: 0 100%; }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import _ from 'lodash';
 import './App.css';
 
 class App extends Component {
@@ -13,36 +13,38 @@ class App extends Component {
       </source>
     </audio> */}
     function screenClick(e){
+      //e.clientX & Y are the coordinates of where
+      //the user clicks
       var xPosition = e.clientX;
       var yPosition = e.clientY;
-      console.log(xPosition);
-      console.log(yPosition);
+      // console.log(xPosition)
+      // console.log(yPosition)
       var i = 0;
       
-      function duplicate() {
-        moveDiv(xPosition,yPosition);
-        var d = document.getElementById('duplicater' + i);
-        d.style.position = "absolute";
-        d.style.left = e.clientX;
-        d.style.top = e.clientY;
-        console.log(d.style.left)
-
         var original = document.getElementById('duplicater' + i);
         var clone = original.cloneNode(true); // "deep" clone
-        clone.id = "duplicater" + ++i; // there can only be one element with an ID
-        clone.onclick = duplicate; // event handlers are not cloned
+        clone.id = _.uniqueId("duplicater_"); // there can only be one element with an ID
+        clone.onclick = screenClick; // event handlers are not cloned
         original.parentNode.appendChild(clone);
-      }
-      duplicate();
-      function moveDiv(x_pos,y_pos){
-        var d = document.getElementById('duplicater' + i);
-        d.style.left = x_pos + "px";
-        d.style.top = y_pos + "px";
-      }
+        console.log(clone)
+
+        //Now that we have cloned the cat,
+        //we need to move it to the location of the click.
+        function moveDiv(x_pos,y_pos){
+          var d = document.getElementById('duplicater' + i);
+          d.style.left = x_pos - 70 + "px";
+          d.style.top = y_pos - 50 + "px";
+        }
+        //invoke the function that moves the cat
+        //passing in the coordinates
+        moveDiv(xPosition,yPosition);
     }
     document.body.addEventListener('click', screenClick, true);  
     return (
       <div className="app">
+        <div className="witch"></div>
+        <div className="wrapper"></div>
+        <div className="parallax"></div>
         <div className="cat" id="duplicater0"></div>
       </div>
     );
