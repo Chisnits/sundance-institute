@@ -22,7 +22,7 @@
   height: 7em;
   background: transparent
   url('http://i1344.photobucket.com/albums/p654/Chisnits/flying-witch_zpsdxjspc4e.png');
-  animation: witchfly 8s steps(9) infinite;
+  animation: witchfly 7s steps(9) infinite;
   position: absolute;
 }
 .cat {
@@ -60,6 +60,7 @@
   45%{
     top: 15vh;
     left: 20vw;
+    transform: rotateY(180deg);
   }
   55%{
     top: 10vh;
@@ -69,8 +70,17 @@
     top: 10vh;
     left: 60vw;
   }
+  75%{
+    top: 15vh;
+    left: 80vw;
+  }
+  85%{
+    top: 25vh;
+    left: 75vw;
+  }
   100% { 
-    background-position: 100%; 
+    top: 35vh;
+    left: 50vw;
   }
 }
 @keyframes catwalk {
